@@ -14,8 +14,8 @@ public class WhatsappRepository {
     private HashMap<Message, User> senderMap;
     private HashMap<Group, User> adminMap;
     private HashSet<String> userMobile;
-    private int customGroupCount;
-    private int messageId;
+    int customGroupCount=1;
+   int messageId=1;
 
     HashMap<String, User> user=new HashMap<>();   // map having key-->mobile number ,, value-->user  --->create user
 
@@ -25,8 +25,8 @@ public class WhatsappRepository {
         this.senderMap = new HashMap<Message, User>();
         this.adminMap = new HashMap<Group, User>();
         this.userMobile = new HashSet<>();
-        this.customGroupCount = 0;
-        this.messageId = 0;
+//        this.customGroupCount = 0;
+//        this.messageId = 0;
     }
 
     public String createUser(String name, String mobile)
@@ -66,9 +66,9 @@ public class WhatsappRepository {
 
     public int createMessage(String content)
     {
-        this.messageId++;
-        Message message = new Message(messageId, content, new Date());
-        return this.messageId;
+        Message message=new Message(messageId, content);
+        messageId++;
+        return message.getId();
     }
 
     public int sendMessage(Message message, User sender, Group group)
