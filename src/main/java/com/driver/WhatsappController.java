@@ -70,7 +70,7 @@ public class WhatsappController {
         {
             throw new Exception("Group does not exist");
         }
-        else if(response==-2)
+        if(response==-2)
         {
             throw new Exception("You are not allowed to send message");
         }

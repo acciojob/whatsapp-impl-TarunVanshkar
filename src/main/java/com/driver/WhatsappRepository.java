@@ -80,14 +80,9 @@ public class WhatsappRepository {
 
         List<User> members=new ArrayList<>();
         members=groupUserMap.get(group);
-        for(User eachMember:members)
+        if(!members.contains(sender))
         {
-            String name= eachMember.getName();
-            String mobile=eachMember.getMobile();
-            if(!name.equals(sender.getName()) && !mobile.equals(sender.getMobile()))
-            {
-                return -2;
-            }
+            return -2;
         }
 
         senderMap.put(message, sender);
